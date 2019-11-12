@@ -3,7 +3,11 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp"/>
 
 <div class="container">
-    <h1>This is the homepage</h1>
+    <c:forEach var="park" items="${ parks }">
+    	<img src="img/parks/${ park.parkCode.toLowerCase() }.jpg">
+    	<h4><c:out value="${ park.parkName }"/></h4>
+    	<p><c:out value="${ park.parkDescription }"/></p>
+    </c:forEach>
 </div>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp"/>
