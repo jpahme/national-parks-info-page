@@ -1,4 +1,4 @@
-package com.techelevator.npgeek.model;
+package com.techelevator.npgeek.model.jdbc;
 
 import static org.junit.Assert.*;
 
