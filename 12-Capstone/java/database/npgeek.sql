@@ -32,18 +32,20 @@ CREATE TABLE weather
 
 	CONSTRAINT pk_weather PRIMARY KEY (parkCode, fiveDayForecastValue),
 	CONSTRAINT fk_weather_park FOREIGN KEY (parkCode) REFERENCES park (parkCode)
-
 );
 
 CREATE SEQUENCE seq_surveyId;
 
 CREATE TABLE survey_result
 (
-	surveyId INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_surveyId'),
+	surveyId INTEGER DEFAULT NEXTVAL('seq_surveyId'),
 	parkCode VARCHAR(10) NOT NULL,
 	emailAddress VARCHAR(100) NOT NULL,
 	state VARCHAR(30) NOT NULL,
-	activityLevel VARCHAR(100) NOT NULL
+	activityLevel VARCHAR(100) NOT NULL,
+	
+	CONSTRAINT pk_survey_result PRIMARY KEY (surveyId),
+	CONSTRAINT fk_survey_result_park FOREIGN KEY (parkCode) REFERENCES park (parkCode)
 );
 
 INSERT INTO park(parkCode, parkName, state, acreage, elevationInFeet, milesOfTrail, numberOfCampsites, climate, yearFounded, annualVisitorCount, inspirationalQuote, inspirationalQuoteSource, parkDescription, entryFee, numberOfAnimalSpecies) VALUES ('CVNP', 'Cuyahoga Valley National Park', 'Ohio', 32832, 696, 125, 0, 'Woodland', 2000, 2189849, 'Of all the paths you take in life, make sure a few of them are dirt.', 'John Muir', 'Though a short distance from the urban areas of Cleveland and Akron, Cuyahoga Valley National Park seems worlds away. The park is a refuge for native plants and wildlife, and provides routes of discovery for visitors. The winding Cuyahoga River gives way to deep forests, rolling hills, and open farmlands. Walk or ride the Towpath Trail to follow the historic route of the Ohio & Erie Canal', 0, 390);
