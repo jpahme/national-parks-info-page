@@ -26,33 +26,46 @@ public class JDBCParkDAO implements IParkDAO {
 		String sql = "SELECT * FROM park ORDER BY parkcode";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 		
-		while (results.next()) {
+		while(results.next()) {
 			allParks.add(mapRowToPark(results));
 		}
 		
 		return allParks;
 	}
 
-	private Park mapRowToPark(SqlRowSet row) {
-		Park park = new Park();
-		
-		park.setAcreage(row.getInt("acreage"));
-		park.setAnnualVisitorCount(row.getInt("annualvisitorcount"));
-		park.setClimate(row.getString("climate"));
-		park.setElevationInFeet(row.getInt("elevationinfeet"));
-		park.setEntryFee(row.getInt("entryfee"));
-		park.setInspirationalQuote(row.getString("inspirationalquote"));
-		park.setInspirationalQuoteSource(row.getString("inspirationalquotesource"));
-		park.setMilesOfTrail(row.getBigDecimal("milesoftrail"));
-		park.setNumberOfAnimalSpecies(row.getInt("numberofanimalspecies"));
-		park.setNumberOfCampSites(row.getInt("numberofcampsites"));
-		park.setParkCode(row.getString("parkcode"));
-		park.setParkDescription(row.getString("parkdescription"));
-		park.setParkName(row.getString("parkname"));
-		park.setState(row.getString("state"));
-		park.setYearFounded(row.getInt("yearfounded"));
-		
-		return park;
-	}
+    @Override
+    public Park getParkByParkCode(String parkCode) {
+        Park park = new Park();
+        String sql = "SELECT * FROM park WHERE parkcode = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, parkCode);
+        
+        while(results.next()) {
+            park = mapRowToPark(results);
+        }
+        
+        return park;
+    }
 
+    private Park mapRowToPark(SqlRowSet row) {
+        Park park = new Park();
+        
+        park.setAcreage(row.getInt("acreage"));
+        park.setAnnualVisitorCount(row.getInt("annualvisitorcount"));
+        park.setClimate(row.getString("climate"));
+        park.setElevationInFeet(row.getInt("elevationinfeet"));
+        park.setEntryFee(row.getInt("entryfee"));
+        park.setInspirationalQuote(row.getString("inspirationalquote"));
+        park.setInspirationalQuoteSource(row.getString("inspirationalquotesource"));
+        park.setMilesOfTrail(row.getBigDecimal("milesoftrail"));
+        park.setNumberOfAnimalSpecies(row.getInt("numberofanimalspecies"));
+        park.setNumberOfCampSites(row.getInt("numberofcampsites"));
+        park.setParkCode(row.getString("parkcode"));
+        park.setParkDescription(row.getString("parkdescription"));
+        park.setParkName(row.getString("parkname"));
+        park.setState(row.getString("state"));
+        park.setYearFounded(row.getInt("yearfounded"));
+        
+        return park;
+    }
+    
 }
