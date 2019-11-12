@@ -29,7 +29,7 @@ public class HomeController {
 	public String displayParkDetail(@RequestParam String parkCode, ModelMap map) {
 	    map.put("park", parkDAO.getParkByParkCode(parkCode));
 	    map.put("weatherForecast", weatherDAO.getWeatherForecastByParkCode(parkCode));
-	    
+	   
 	    return "parkDetailPage";
 	}
 

@@ -12,7 +12,7 @@ nav a {
 	font-weight: bold;
 }
 
-/* Card */
+/* Park Card */
 .card-wrapper {
 	padding: 10px;
 	margin-top: 10px;
@@ -20,4 +20,14 @@ nav a {
 
 .card-img-top {
 	height: 200px;
+}
+
+/* Weather */
+.weather-wrapper p:nth-of-type(1),
+.weather-wrapper p:last-of-type {
+	display:none;
+}
+
+.today p {
+	display:block !important;
 }

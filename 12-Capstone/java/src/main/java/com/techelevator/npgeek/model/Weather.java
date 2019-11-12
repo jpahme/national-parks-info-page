@@ -1,5 +1,8 @@
 package com.techelevator.npgeek.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Weather {
 
     private String parkCode;
@@ -47,5 +50,17 @@ public class Weather {
     public void setForecast(String forecast) {
         this.forecast = forecast;
     }
+
+	public String createWeatherImage() {
+		Map<String, String> weatherImageMap = new HashMap<>();
+		weatherImageMap.put("cloudy", "img/weather/cloudy.png");
+		weatherImageMap.put("partly cloudy", "img/weather/partlyCloudy.png");
+		weatherImageMap.put("rain", "img/weather/rain.png");
+		weatherImageMap.put("snow", "img/weather/snow.png");
+		weatherImageMap.put("sunny", "img/weather/sunny.png");
+		weatherImageMap.put("thunderstorms", "img/weather/thunderstorms.png");
+		
+		return weatherImageMap.get(forecast);
+	}
     
 }
