@@ -40,6 +40,7 @@ public class ParkIntegrationTest extends DAOIntegrationTest {
     @Test
     public void getAllParksShouldReturnAListOfAllParks() {
         List<Park> actualResult = parkDAO.getAllParks();
+        assertNotNull(actualResult.get(0));
     }
 
 }
