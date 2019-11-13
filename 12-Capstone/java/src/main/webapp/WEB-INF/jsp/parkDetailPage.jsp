@@ -3,13 +3,13 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <div class="container">
-	<div class="row">
-		<div class="col-6">
+	<div class="park-detail-info row justify-content-around align-items-center">
+		<div class="col-12 col-lg-5">
 			<img src="img/parks/${ park.parkCode.toLowerCase() }.jpg"
 			 	 alt="${ park.parkName }">
 	 	</div>
 	
-		<div class="col-6">
+		<div class="col-12 col-lg-6 mt-4 mt-lg-0">
 			<h5>
 				<c:out value="${ park.parkName }" />
 			</h5>
@@ -20,7 +20,7 @@
 		</div>
 	</div>
 	
-	<div class="row">
+	<div class="weather-info row justify-content-around align-items-center">
 		<c:forEach var="weather" items="${ weatherForecast }">
 			<c:set var="isToday" value="" />
 			<c:set var="col" value="col-2" />
@@ -31,11 +31,11 @@
 			</c:if>
 	
 		   <div class="weather-wrapper ${ isToday } ${ col }">
-		       <p>Today</p>
+		       <h5 class="text-center">Today</h5>
 			   <img src="${ weather.createWeatherImage() }" alt="${ weather.forecast }" />
-			   <p>High <c:out value="${ weather.high }" /></p>
-			   <p>Low <c:out value="${ weather.low }" /></p>
-			   <p><c:out value="${ weather.forecast }" /></p>
+			   <p class="text-center high">High <c:out value="${ weather.high }" /></p>
+			   <p class="text-center low">Low <c:out value="${ weather.low }" /></p>
+			   <p class="text-center"><c:out value="${ weather.forecast }" /></p>
 		   </div>
 		</c:forEach>
 	</div>

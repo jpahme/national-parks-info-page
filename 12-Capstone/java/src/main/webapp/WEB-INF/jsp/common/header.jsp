@@ -16,7 +16,7 @@
 
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="<c:url value="/" />">
 		  <img src="img/logo.png" class="logo" alt="logo" />
 		</a>
 		

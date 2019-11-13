@@ -2,6 +2,8 @@
 * {
     font-family: 'Nunito', sans-serif;
 }
+/*******/
+
 
 /* Navbar */
 .logo {
@@ -11,23 +13,116 @@
 nav a {
 	font-weight: bold;
 }
+/*******/
 
-/* Park Card */
-.card-wrapper {
-	padding: 10px;
-	margin-top: 10px;
+
+/* Jumbotron */
+.jumbotron {
+	margin-bottom: 10px;
+}
+/*******/
+
+
+/* Flip Card */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 280px;
+  border: 0.1px transparent solid;
+  border-radius: 5%;
+  perspective: 1000px; 
+  cursor: pointer;
 }
 
-.card-img-top {
-	height: 200px;
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
 
-/* Weather */
-.weather-wrapper p:nth-of-type(1),
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card img {
+	width: 100%;
+	height: 280px;
+	border-radius: 5%;
+}
+
+.flip-card p {
+	font-size: 0.8rem;
+}
+/*******/
+
+
+/* Park Detail Info */
+.park-detail-info {
+	margin-top: 20px;
+}
+
+.park-detail-info img {
+	width: 100%;
+	border-radius: 2%;
+	border: double #c0c0c0 4px;
+}
+
+.park-detail-info h5 {
+	font-weight: bold;
+}
+/*******/
+
+
+/* Weather Info */
+.weather-info {
+	margin: 20px 0;
+}
+
+.weather-wrapper h5,
 .weather-wrapper p:last-of-type {
-	display:none;
+	display: none;
+}
+
+.weather-wrapper p {
+	margin: 0;
+}
+
+.weather-wrapper img {
+	width: 100%;
+	max-height: 150px;
+}
+
+.today img {
+	max-height: 200px;
+}
+
+.today h5 {
+	display: block !important;
+	font-weight: bold;
 }
 
 .today p {
-	display:block !important;
+	display: block !important;
 }
+/*******/
+
+
