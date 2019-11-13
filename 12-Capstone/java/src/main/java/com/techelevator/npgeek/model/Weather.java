@@ -1,6 +1,8 @@
 package com.techelevator.npgeek.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Weather {
@@ -61,6 +63,34 @@ public class Weather {
 		weatherImageMap.put("thunderstorms", "img/weather/thunderstorms.png");
 		
 		return weatherImageMap.get(forecast);
+	}
+	
+	public String createClimateRecommendation() {
+	    Map<String, String> climateRecommendationMap = new HashMap<>();
+	    climateRecommendationMap.put("snow", "Remember to wear snowshoes");
+	    climateRecommendationMap.put("rain", "Bring your raingear and wear waterproof shoes");
+	    climateRecommendationMap.put("thunderstorms", "Seek shelter and avoid hiking on exposed ridges");
+	    climateRecommendationMap.put("sun", "Remember to pack sunblock");
+	    
+	    return climateRecommendationMap.getOrDefault(forecast, "");
+	}
+	
+	public List<String> createTemperatureRecommendations() {
+	    List<String> temperatureRecommendations = new ArrayList<>();
+	    
+	    if (high - low > 20) {
+	        temperatureRecommendations.add("Remember to wear breathable layers");
+	    }
+	    
+	    if (high > 75) {
+	        temperatureRecommendations.add("Bring an extra gallon of water");
+	    }
+	    
+	    if (high < 20) {
+	        temperatureRecommendations.add("Make sure you wear a thick coat");
+	    }
+	    
+	    return temperatureRecommendations;
 	}
     
 }
