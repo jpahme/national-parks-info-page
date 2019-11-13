@@ -130,7 +130,8 @@ th:nth-of-type(even), td:nth-of-type(even) {
 }
 
 .weather-wrapper h5,
-.weather-wrapper p:last-of-type {
+.weather-wrapper p:last-of-type,
+.weather-wrapper h6 {
 	display: none;
 }
 
@@ -143,15 +144,9 @@ th:nth-of-type(even), td:nth-of-type(even) {
 	max-height: 150px;
 }
 
-.today .weather-img-wrapper {
-	width: 50%;
-}
-
 .today img {
-	width: 20%;
-	margin: 0 auto;
+	width: 100%;
 	max-height: 200px;
-	display: block;
 }
 
 .today h5 {
@@ -159,8 +154,12 @@ th:nth-of-type(even), td:nth-of-type(even) {
 	font-weight: bold;
 }
 
-.today p {
+.today p, .today h6 {
 	display: block !important;
+}
+
+.today h6 {
+	font-weight: bold;
 }
 /*******/
 

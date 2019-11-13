@@ -79,11 +79,10 @@
 		
 				<c:if test="${ weather.fiveDayForecastValue == 1 }">
 					<c:set var="isToday" value="today" />
-					<c:set var="col" value="col-12" />
+					<c:set var="col" value="col-3" />
 				</c:if>
 		
 			   <div class="weather-wrapper ${ isToday } ${ col }">
-			       <div>
 				       <h5 class="text-center">Today</h5>
 				       <img src="${ weather.createWeatherImage() }" alt="${ weather.forecast }" />
 					   <c:set var="tempHigh" value="${ weather.high } &deg;F" />
@@ -107,7 +106,11 @@
 	                   <p class="text-center high">High ${ tempHigh }</p>
 	                   <p class="text-center low">Low ${ tempLow }</p>
 					   <p class="text-center"><c:out value="${ weather.forecast }" /></p>
-				   </div>
+
+				       <h6 class="text-center text-info">${ weather.createClimateRecommendation() }</h6>
+				       <c:forEach var="tempRecommendation" items="${ weather.createTemperatureRecommendations() }">
+				           <h6 class="text-center text-info"><c:out value="${ tempRecommendation }" /></h6>
+				       </c:forEach>
 			   </div>
 			</c:forEach>
 		</div>
