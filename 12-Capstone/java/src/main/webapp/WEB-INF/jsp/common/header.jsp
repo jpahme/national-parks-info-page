@@ -31,8 +31,8 @@
 				<li class="nav-item">
 				    <a class="nav-link" href="<c:url value="/" />">Home</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">
-				    Survey</a>
+				<li class="nav-item">
+					<a class="nav-link" href="<c:url value="/survey" />">Survey</a>
 				</li>
 			</ul>
 		</div>

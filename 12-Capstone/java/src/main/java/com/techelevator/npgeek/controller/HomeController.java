@@ -26,7 +26,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/parkdetail")
-	public String displayParkDetail(@RequestParam String parkCode, ModelMap map) {
+	public String displayParkDetailPage(@RequestParam String parkCode, ModelMap map) {
 	    map.put("park", parkDAO.getParkByParkCode(parkCode));
 	    map.put("weatherForecast", weatherDAO.getWeatherForecastByParkCode(parkCode));
 	   
