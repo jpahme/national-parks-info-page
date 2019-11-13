@@ -1,5 +1,6 @@
 package com.techelevator.npgeek.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -91,6 +92,12 @@ public class Weather {
 	    }
 	    
 	    return temperatureRecommendations;
+	}
+	
+	public LocalDate createDate() {
+	    LocalDate now = LocalDate.now();
+	    LocalDate date = now.plusDays(fiveDayForecastValue-1);
+	    return date;
 	}
     
 }

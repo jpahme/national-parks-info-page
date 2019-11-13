@@ -151,6 +151,7 @@ th:nth-of-type(even), td:nth-of-type(even) {
 
 .today h5 {
 	display: block !important;
+	margin: 0;
 	font-weight: bold;
 }
 

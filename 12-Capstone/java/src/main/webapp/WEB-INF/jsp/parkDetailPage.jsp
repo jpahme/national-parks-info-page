@@ -84,6 +84,7 @@
 		
 			   <div class="weather-wrapper ${ isToday } ${ col }">
 				       <h5 class="text-center">Today</h5>
+				       <p class="text-center">${ weather.createDate() }</p>
 				       <img src="${ weather.createWeatherImage() }" alt="${ weather.forecast }" />
 					   <c:set var="tempHigh" value="${ weather.high } &deg;F" />
 					   <c:set var="tempLow" value="${ weather.low } &deg;F" />
