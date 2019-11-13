@@ -21,6 +21,7 @@
 						</option>
 					</c:forEach>
 				</form:select>
+				<form:errors path="parkCode" cssClass="error" />
 			</div>
 		</div>
 
@@ -28,6 +29,7 @@
 			<form:label path="emailAddress" cssClass="col-sm-2 col-form-label">Your Email</form:label>
 			<div class="col-sm-10">
 				<form:input path="emailAddress" cssClass="form-control" />
+				<form:errors path="emailAddress" cssClass="error" />
 			</div>
 		</div>
 
@@ -91,23 +93,45 @@
 					<option value="Wisconsin">Wisconsin</option>
 					<option value="Wyoming">Wyoming</option>
 				</form:select>
+				<form:errors path="state" cssClass="error" />
 			</div>
 		</div>
 		
 	    <fieldset class="form-group">
 	    	<div class="row">
-	      		<legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+	      		<legend class="col-form-label col-sm-2 pt-0">Activity Level</legend>
 	      		<div class="col-sm-10">
+	      		    <div>
+						<form:radiobutton path="activityLevel" value="inactive" checked="checked" />
+						<form:label path="activityLevel">Inactive</form:label>
+						<form:errors path="activityLevel" cssClass="error" />
+					</div>
 					
+					<div>
+	                    <form:radiobutton path="activityLevel" value="low" />
+	                    <form:label path="activityLevel">Low</form:label>
+	                    <form:errors path="activityLevel" cssClass="error" />
+                    </div>
+                    
+                    <div>
+	                    <form:radiobutton path="activityLevel" value="medium" />
+	                    <form:label path="activityLevel">Medium</form:label>
+	                    <form:errors path="activityLevel" cssClass="error" />
+                    </div>
+                    
+                    <div>
+	                    <form:radiobutton path="activityLevel" value="high" />
+	                    <form:label path="activityLevel">High</form:label>
+	                    <form:errors path="activityLevel" cssClass="error" />
+                    </div>
 	      		</div>
 	    	</div>
 	  	</fieldset>
-
+	  	
+	  	<div class="text-center">
+	  	    <input class="btn btn-info" type="submit" value="Submit" />
+        </div>
 	</form:form>
-	
-	
-	
-
 </div>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

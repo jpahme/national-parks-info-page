@@ -126,3 +126,8 @@ nav a {
 /*******/
 
 
+/* Form Error */
+.error {
+	color: red;
+}
+/*******/

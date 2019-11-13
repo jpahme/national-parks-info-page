@@ -27,7 +27,7 @@ public class JDBCParkDAO implements IParkDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 		
 		while(results.next()) {
-			allParks.add(mapRowToPark(results));
+			allParks.add(mapRowToPark(results, false));
 		}
 		
 		return allParks;
@@ -40,13 +40,36 @@ public class JDBCParkDAO implements IParkDAO {
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, parkCode);
         
         while(results.next()) {
-            park = mapRowToPark(results);
+            park = mapRowToPark(results, false);
         }
         
         return park;
     }
-
-    private Park mapRowToPark(SqlRowSet row) {
+    
+    @Override
+    public List<Park> getFavoriteParks() {
+        List<Park> favoriteParks = new ArrayList<>();
+        String sql = "SELECT park.*, surveycount \r\n" + 
+                "FROM park INNER JOIN\r\n" + 
+                "(SELECT park.parkcode, \r\n" + 
+                "COUNT(surveyid) surveycount\r\n" + 
+                "FROM park INNER JOIN\r\n" + 
+                "survey_result survey\r\n" + 
+                "ON park.parkcode = survey.parkcode\r\n" + 
+                "GROUP BY park.parkcode) t\r\n" + 
+                "ON park.parkcode = t.parkcode\r\n" + 
+                "ORDER BY surveycount DESC, parkcode";
+        
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        
+        while(results.next()) {
+            favoriteParks.add(mapRowToPark(results, true));
+        }
+        
+        return favoriteParks;
+    }
+    
+    private Park mapRowToPark(SqlRowSet row, boolean hasSurveyCount) {
         Park park = new Park();
         
         park.setAcreage(row.getInt("acreage"));
@@ -65,7 +88,11 @@ public class JDBCParkDAO implements IParkDAO {
         park.setState(row.getString("state"));
         park.setYearFounded(row.getInt("yearfounded"));
         
+        if (hasSurveyCount) {
+            park.setSurveyCount(row.getInt("surveycount"));
+        }
+        
         return park;
     }
-    
+
 }
