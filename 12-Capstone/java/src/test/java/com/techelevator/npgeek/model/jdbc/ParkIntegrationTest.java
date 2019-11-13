@@ -42,5 +42,18 @@ public class ParkIntegrationTest extends DAOIntegrationTest {
         List<Park> actualResult = parkDAO.getAllParks();
         assertNotNull(actualResult.get(0));
     }
+    
+    @Test
+    public void getParkByParkCodeWillReturnTheCorrespondingPark() {
+        String testParkCode = "GNP";
+        Park actualResult = parkDAO.getParkByParkCode(testParkCode);
+        assertEquals(testParkCode, actualResult.getParkCode());
+    }
+    
+    @Test
+    public void getFavoriteParksShouldReturnAListOfFavoriteParks() {
+        List<Park> actualResult = parkDAO.getFavoriteParks();
+        assertNotNull(actualResult.get(0));
+    }
 
 }
