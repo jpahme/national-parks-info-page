@@ -2,13 +2,36 @@ package com.techelevator.npgeek.model.jdbc;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class ParkIntegrationTest {
+import com.techelevator.npgeek.model.JDBCParkDAO;
 
-    @Test
-    public void test() {
-        fail("Not yet implemented");
+public class ParkIntegrationTest extends DAOIntegrationTest {
+
+    private JDBCParkDAO parkDAO;
+    
+    @BeforeClass
+    public static void SetUpBeforeClass() throws Exception {
+        setupDataSource();
+    }
+    
+    @AfterClass
+    public static void tearDownAfterClass() throws Exception {
+        closeDataSource();
+    }
+    
+    @Before
+    public void setUp() throws Exception {
+        parkDAO = new JDBCParkDAO(getDataSource());
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        rollback();
     }
 
 }
