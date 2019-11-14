@@ -12,6 +12,7 @@
 	        visiting our page!</p>
 	    <hr />
 	    <br />
+	    
 		<div class="form-group row">
 			<form:label path="parkCode" cssClass="col-sm-3 col-form-label">Favorite National Park</form:label>
 			<div class="col-sm-9">
@@ -103,25 +104,25 @@
 	      		<legend class="col-form-label col-sm-3 pt-0">Activity Level</legend>
 	      		<div class="col-sm-9">
 	      		    <div>
-						<form:radiobutton path="activityLevel" value="inactive" checked="checked" />
+						<form:radiobutton path="activityLevel" value="inactive" checked="checked" cssClass="radio" />
 						<form:label path="activityLevel">Inactive</form:label>
 						<form:errors path="activityLevel" cssClass="error" />
 					</div>
 					
 					<div>
-	                    <form:radiobutton path="activityLevel" value="sedentary" />
+	                    <form:radiobutton path="activityLevel" value="sedentary" cssClass="radio" />
 	                    <form:label path="activityLevel">Sedentary</form:label>
 	                    <form:errors path="activityLevel" cssClass="error" />
                     </div>
                     
                     <div>
-	                    <form:radiobutton path="activityLevel" value="active" />
+	                    <form:radiobutton path="activityLevel" value="active" cssClass="radio" />
 	                    <form:label path="activityLevel">Active</form:label>
 	                    <form:errors path="activityLevel" cssClass="error" />
                     </div>
                     
                     <div>
-	                    <form:radiobutton path="activityLevel" value="extremely active" />
+	                    <form:radiobutton path="activityLevel" value="extremely active" cssClass="radio" />
 	                    <form:label path="activityLevel">Extremely Active</form:label>
 	                    <form:errors path="activityLevel" cssClass="error" />
                     </div>

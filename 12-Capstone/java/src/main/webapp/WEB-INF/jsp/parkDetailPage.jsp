@@ -56,6 +56,7 @@
 	</div>
 	
 	<div class="weather-info">
+	
 	    <h4 class="text-center">Weather for the Next 5 Days</h4>
 	    <form action="parkdetail" id="celcius" style="display:none" method="POST">
 	       <input type="hidden" name="parkCode" value="${ park.parkCode }" />
@@ -85,9 +86,11 @@
 			   <div class="weather-wrapper ${ isToday } ${ col }">
 				       <h5 class="text-center">Today</h5>
 				       <p class="text-center">${ weather.createDate() }</p>
-				       <img src="${ weather.createWeatherImage() }" alt="${ weather.forecast }" />
+				       <img src="${ weather.createWeatherImage() }" 
+				            alt="${ weather.forecast }" />
+				            
 					   <c:set var="tempHigh" value="${ weather.high } &deg;F" />
-					   <c:set var="tempLow" value="${ weather.low } &deg;F" />
+					   <c:set var="tempLow"  value="${ weather.low } &deg;F" />
 	
 				       <c:if test="${ temperatureScale == 'celcius' }">
 				           <fmt:parseNumber var = "intHigh" 
@@ -96,12 +99,12 @@
 				                          value = "${ (weather.high - 32) * (5 / 9) }" />
 				                          
 				           <fmt:parseNumber var = "intLow" 
-	                                   integerOnly = "true" 
-	                                          type = "number" 
-	                                         value = "${ (weather.low - 32) * (5 / 9) }" />  
+	                                integerOnly = "true" 
+	                                       type = "number" 
+	                                      value = "${ (weather.low - 32) * (5 / 9) }" />  
 	                                                      
 				           <c:set var="tempHigh" value="${ intHigh } &deg;C" />
-	                          <c:set var="tempLow" value="${ intLow } &deg;C" />
+	                       <c:set var="tempLow"  value="${ intLow } &deg;C" />
 				       </c:if>
 					   
 	                   <p class="text-center high">High ${ tempHigh }</p>
@@ -115,6 +118,7 @@
 			   </div>
 			</c:forEach>
 		</div>
+		
 	</div>
 </div>
 

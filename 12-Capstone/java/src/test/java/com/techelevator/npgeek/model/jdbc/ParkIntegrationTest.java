@@ -18,7 +18,7 @@ public class ParkIntegrationTest extends DAOIntegrationTest {
     private JDBCParkDAO parkDAO;
     
     @BeforeClass
-    public static void SetUpBeforeClass() throws Exception {
+    public static void setUpBeforeClass() throws Exception {
         setupDataSource();
     }
     
@@ -37,6 +37,8 @@ public class ParkIntegrationTest extends DAOIntegrationTest {
         rollback();
     }
     
+    /* Note all test cases below depend on your instance of database */
+   
     @Test
     public void getAllParksShouldReturnAListOfAllParks() {
         List<Park> actualResult = parkDAO.getAllParks();

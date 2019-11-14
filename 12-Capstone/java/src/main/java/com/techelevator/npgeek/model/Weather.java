@@ -1,6 +1,8 @@
 package com.techelevator.npgeek.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,6 +58,7 @@ public class Weather {
 
 	public String createWeatherImage() {
 		Map<String, String> weatherImageMap = new HashMap<>();
+		
 		weatherImageMap.put("cloudy", "img/weather/cloudy.png");
 		weatherImageMap.put("partly cloudy", "img/weather/partlyCloudy.png");
 		weatherImageMap.put("rain", "img/weather/rain.png");
@@ -68,6 +71,7 @@ public class Weather {
 	
 	public String createClimateRecommendation() {
 	    Map<String, String> climateRecommendationMap = new HashMap<>();
+	    
 	    climateRecommendationMap.put("snow", "Remember to wear snowshoes");
 	    climateRecommendationMap.put("rain", "Bring your raingear and wear waterproof shoes");
 	    climateRecommendationMap.put("thunderstorms", "Seek shelter and avoid hiking on exposed ridges");
@@ -81,12 +85,10 @@ public class Weather {
 	    
 	    if (high - low > 20) {
 	        temperatureRecommendations.add("Remember to wear breathable layers");
-	    }
-	    
+	    }  
 	    if (high > 75) {
 	        temperatureRecommendations.add("Bring an extra gallon of water");
 	    }
-	    
 	    if (high < 20) {
 	        temperatureRecommendations.add("Make sure you wear a thick coat");
 	    }
@@ -94,10 +96,12 @@ public class Weather {
 	    return temperatureRecommendations;
 	}
 	
-	public LocalDate createDate() {
+	public String createDate() {
 	    LocalDate now = LocalDate.now();
+	    
 	    LocalDate date = now.plusDays(fiveDayForecastValue-1);
-	    return date;
+	    
+        return date.format(DateTimeFormatter.ofPattern("E, MMM dd"));
 	}
     
 }

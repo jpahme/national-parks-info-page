@@ -27,6 +27,7 @@ public class ParkTest {
         String parkName = "Fake National Park";
         String state = "Fake State";
         int yearFounded = 1995;
+        int surveyCount = 10;
         
         park.setAcreage(acreage);
         park.setAnnualVisitorCount(annualVisitorCount);
@@ -43,6 +44,7 @@ public class ParkTest {
         park.setParkName(parkName);
         park.setState(state);
         park.setYearFounded(yearFounded);
+        park.setSurveyCount(surveyCount);
         
         assertEquals(acreage, park.getAcreage());
         assertEquals(annualVisitorCount, park.getAnnualVisitorCount());
@@ -59,6 +61,7 @@ public class ParkTest {
         assertEquals(parkName, park.getParkName());
         assertEquals(state, park.getState());
         assertEquals(yearFounded, park.getYearFounded());   
+        assertEquals(surveyCount, park.getSurveyCount());
     }
 
 }

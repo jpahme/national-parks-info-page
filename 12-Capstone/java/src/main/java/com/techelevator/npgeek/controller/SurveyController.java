@@ -39,7 +39,7 @@ public class SurveyController {
         if (result.hasErrors()) {
             flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "survey", result);
             flash.addFlashAttribute("survey", survey);
-            
+
             return "redirect:/survey";
         }
 
@@ -50,7 +50,7 @@ public class SurveyController {
     @RequestMapping(path = "/favoriteparks", method = RequestMethod.GET)
     public String displayFavoriteParks(ModelMap map) {
         map.put("favoriteParks", parkDAO.getFavoriteParks());
-        
+
         return "favoriteParksPage";
     }
 

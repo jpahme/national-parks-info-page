@@ -8,6 +8,11 @@
 /* Navbar */
 .logo {
 	height: 50px;
+	opacity: 0.8;
+}
+
+.logo:hover {
+	opacity: 1;
 }
 
 nav a {
@@ -19,6 +24,20 @@ nav a {
 /* Jumbotron */
 .jumbotron {
 	margin-bottom: 10px;
+	background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url("../img/jumbotron.jpg");
+	background-size: cover;
+	background-attachment: static;
+    background-position: center;
+    height: 340px;
+}
+
+.jumbotron h1, .jumbotron p {
+	color: white;
+	text-shadow: -1.2px 0 black, 0 1.2px black, 1.2px 0 black, 0 -1.2px black;
+}
+
+.jumbotron .container {
+	padding-top: 40px;
 }
 /*******/
 
@@ -169,6 +188,10 @@ th:nth-of-type(even), td:nth-of-type(even) {
 .survey form {
 	width: 65%;
 	margin: 30px auto;
+}
+
+.radio {
+	cursor: pointer;
 }
 
 .error {
