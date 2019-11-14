@@ -18,6 +18,10 @@
 nav a {
 	font-weight: bold;
 }
+
+nav a:hover {
+	border-bottom: 1px solid gray;
+}
 /*******/
 
 

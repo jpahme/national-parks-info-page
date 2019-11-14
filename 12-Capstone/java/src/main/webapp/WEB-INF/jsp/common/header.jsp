@@ -35,6 +35,9 @@
 				<li class="nav-item">
 					<a class="nav-link" href="<c:url value="/survey" />">Survey</a>
 				</li>
+				<li class="nav-item">
+                    <a class="nav-link" href="<c:url value="/favoriteparks" />">Favorite Parks</a>
+                </li>
 			</ul>
 		</div>
 	</nav>
