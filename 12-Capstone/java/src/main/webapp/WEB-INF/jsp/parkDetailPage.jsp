@@ -44,7 +44,7 @@
 		       <td align="center"><c:out value="${ park.climate }" /></td>
 		       <td align="center"><c:out value="${ park.yearFounded }" /></td>
 		       <td align="center"><c:out value="${ park.annualVisitorCount }" /></td>
-		       <td align="center"><c:out value="${ park.entryFee }" /></td>
+		       <td align="center">$ <c:out value="${ park.entryFee }" /></td>
 		       <td align="center"><c:out value="${ park.numberOfAnimalSpecies }" /></td>
 		   </tr>
 		</table>
