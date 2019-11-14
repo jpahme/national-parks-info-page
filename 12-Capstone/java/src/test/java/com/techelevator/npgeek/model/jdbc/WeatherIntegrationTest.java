@@ -16,9 +16,9 @@ import com.techelevator.npgeek.model.Weather;
 public class WeatherIntegrationTest extends DAOIntegrationTest {
 
     private JDBCWeatherDAO weatherDAO;
-    
+	
     @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
+    public static void SetUpBeforeClass() throws Exception {
         setupDataSource();
     }
     
@@ -31,7 +31,7 @@ public class WeatherIntegrationTest extends DAOIntegrationTest {
     public void setUp() throws Exception {
         weatherDAO = new JDBCWeatherDAO(getDataSource());
     }
-    
+
     @After
     public void tearDown() throws Exception {
         rollback();
@@ -40,11 +40,10 @@ public class WeatherIntegrationTest extends DAOIntegrationTest {
     /* Note all test cases below depend on your instance of database */
     
     @Test
-    public void getWeatherForecastByParkCodeShouldReturnTheCorrespondingForecast() {
+    public void getWeatherForecastByParkCodeWillReturnTheCorrespondingWeatherForecast() {
         String testParkCode = "GNP";
         List<Weather> actualResult = weatherDAO.getWeatherForecastByParkCode(testParkCode);
-
-        assertEquals(5, actualResult.size());
+        assertNotNull(actualResult.get(0));
     }
 
 }

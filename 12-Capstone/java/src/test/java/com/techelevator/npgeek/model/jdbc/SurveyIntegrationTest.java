@@ -14,14 +14,14 @@ import com.techelevator.npgeek.model.JDBCSurveyDAO;
 import com.techelevator.npgeek.model.Survey;
 
 public class SurveyIntegrationTest extends DAOIntegrationTest {
-    
-    private JDBCSurveyDAO surveyDAO;
-
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
+	
+	private JDBCSurveyDAO surveyDAO;
+	
+	@BeforeClass
+    public static void SetUpBeforeClass() throws Exception {
         setupDataSource();
     }
-
+    
     @AfterClass
     public static void tearDownAfterClass() throws Exception {
         closeDataSource();
