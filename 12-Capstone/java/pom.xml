@@ -130,6 +130,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.3</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -140,8 +141,8 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>com.github.jsimone</groupId>
-									<artifactId>webapp-runner</artifactId>
-									<version>9.0.27.0</version>
+									<artifactId>webapp-runner-main</artifactId>
+									<version>8.5.15.1</version>
 									<destFileName>webapp-runner.jar</destFileName>
 								</artifactItem>
 							</artifactItems>
