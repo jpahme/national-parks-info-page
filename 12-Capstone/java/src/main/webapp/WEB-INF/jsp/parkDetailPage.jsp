@@ -107,8 +107,8 @@
 	                       <c:set var="tempLow"  value="${ intLow } &deg;C" />
 				       </c:if>
 					   
-	                   <p class="text-center high">High ${ tempHigh }</p>
-	                   <p class="text-center low">Low ${ tempLow }</p>
+	                   <p class="text-center high text-danger">High ${ tempHigh }</p>
+	                   <p class="text-center low text-primary">Low ${ tempLow }</p>
 					   <p class="text-center"><c:out value="${ weather.forecast }" /></p>
 
 				       <h6 class="text-center text-info">${ weather.createClimateRecommendation() }</h6>
