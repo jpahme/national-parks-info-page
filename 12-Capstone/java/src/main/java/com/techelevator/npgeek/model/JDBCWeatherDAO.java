@@ -10,16 +10,31 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+/**
+ * The Class JDBCWeatherDAO.
+ */
 @Component
 public class JDBCWeatherDAO implements IWeatherDAO {
     
+    /** The jdbc template. */
     private JdbcTemplate jdbcTemplate;
     
+    /**
+     * Instantiates a new JDBC weather DAO.
+     *
+     * @param dataSource the data source
+     */
     @Autowired
     public JDBCWeatherDAO(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * Gets the weather forecast by park code.
+     *
+     * @param parkCode the park code
+     * @return the weather forecast by park code
+     */
     @Override
     public List<Weather> getWeatherForecastByParkCode(String parkCode) {
         List<Weather> weatherForecast = new ArrayList<>();
@@ -33,6 +48,12 @@ public class JDBCWeatherDAO implements IWeatherDAO {
         return weatherForecast;
     }
 
+    /**
+     * Map row to weather.
+     *
+     * @param row the row
+     * @return the weather
+     */
     private Weather mapRowToWeather(SqlRowSet row) {
         Weather weather = new Weather();
         

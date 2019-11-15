@@ -10,16 +10,30 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+/**
+ * The Class JDBCSurveyDAO.
+ */
 @Component
 public class JDBCSurveyDAO implements ISurveyDAO {
     
+    /** The jdbc template. */
     private JdbcTemplate jdbcTemplate;
     
+    /**
+     * Instantiates a new JDBC survey DAO.
+     *
+     * @param dataSource the data source
+     */
     @Autowired
     public JDBCSurveyDAO(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * Save survey.
+     *
+     * @param survey the survey
+     */
     @Override
     public void saveSurvey(Survey survey) {
         String sql = "INSERT INTO survey_result "
@@ -37,6 +51,11 @@ public class JDBCSurveyDAO implements ISurveyDAO {
                             survey.getActivityLevel());
     }
     
+    /**
+     * Gets the next survey id.
+     *
+     * @return the next survey id
+     */
     private int getNextSurveyId() {
         String sql = "SELECT NEXTVAL('seq_surveyid')";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
@@ -45,6 +64,12 @@ public class JDBCSurveyDAO implements ISurveyDAO {
         return results.getInt(1);
     }
 
+    /**
+     * Gets the surveys by email address.
+     *
+     * @param emailAddress the email address
+     * @return the surveys by email address
+     */
     /* For Testing Purpose */
     public List<Survey> getSurveysByEmailAddress(String emailAddress) {
         List<Survey> surveys = new ArrayList<>();
@@ -58,6 +83,12 @@ public class JDBCSurveyDAO implements ISurveyDAO {
         return surveys;
     }
     
+    /**
+     * Map row to survey.
+     *
+     * @param row the row
+     * @return the survey
+     */
     /* For Testing Purpose */
     private Survey mapRowToSurvey(SqlRowSet row) {
         Survey survey = new Survey();

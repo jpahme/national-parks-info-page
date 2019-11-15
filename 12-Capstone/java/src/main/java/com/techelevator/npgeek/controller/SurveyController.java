@@ -15,15 +15,26 @@ import com.techelevator.npgeek.model.IParkDAO;
 import com.techelevator.npgeek.model.ISurveyDAO;
 import com.techelevator.npgeek.model.Survey;
 
+/**
+ * The Class SurveyController.
+ */
 @Controller
 public class SurveyController {
 
+    /** The park DAO. */
     @Autowired
     private IParkDAO parkDAO;
 
+    /** The survey DAO. */
     @Autowired
     private ISurveyDAO surveyDAO;
 
+    /**
+     * Display survey page.
+     *
+     * @param map the map
+     * @return the string
+     */
     @RequestMapping(path = "/survey", method = RequestMethod.GET)
     public String displaySurveyPage(ModelMap map) {
         map.put("parks", parkDAO.getAllParks());
@@ -34,6 +45,14 @@ public class SurveyController {
         return "surveyPage";
     }
 
+    /**
+     * Submit survey.
+     *
+     * @param survey the survey
+     * @param result the result
+     * @param flash the flash
+     * @return the string
+     */
     @RequestMapping(path = "/survey", method = RequestMethod.POST)
     public String submitSurvey(@Valid @ModelAttribute Survey survey, BindingResult result, RedirectAttributes flash) {
         if (result.hasErrors()) {
@@ -47,6 +66,12 @@ public class SurveyController {
         return "redirect:/favoriteparks";
     }
 
+    /**
+     * Display favorite parks.
+     *
+     * @param map the map
+     * @return the string
+     */
     @RequestMapping(path = "/favoriteparks", method = RequestMethod.GET)
     public String displayFavoriteParks(ModelMap map) {
         map.put("favoriteParks", parkDAO.getFavoriteParks());

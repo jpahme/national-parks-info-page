@@ -8,54 +8,121 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The Class Weather.
+ */
 public class Weather {
 
+    /** The park code. */
     private String parkCode;
+    
+    /** The five day forecast value. */
     private int fiveDayForecastValue;
+    
+    /** The low. */
     private int low;
+    
+    /** The high. */
     private int high;
+    
+    /** The forecast. */
     private String forecast;
 
+    /**
+     * Gets the park code.
+     *
+     * @return the park code
+     */
     public String getParkCode() {
         return parkCode;
     }
 
+    /**
+     * Sets the park code.
+     *
+     * @param parkCode the new park code
+     */
     public void setParkCode(String parkCode) {
         this.parkCode = parkCode;
     }
 
+    /**
+     * Gets the five day forecast value.
+     *
+     * @return the five day forecast value
+     */
     public int getFiveDayForecastValue() {
         return fiveDayForecastValue;
     }
 
+    /**
+     * Sets the five day forecast value.
+     *
+     * @param fiveDayForecastValue the new five day forecast value
+     */
     public void setFiveDayForecastValue(int fiveDayForecastValue) {
         this.fiveDayForecastValue = fiveDayForecastValue;
     }
 
+    /**
+     * Gets the low.
+     *
+     * @return the low
+     */
     public int getLow() {
         return low;
     }
 
+    /**
+     * Sets the low.
+     *
+     * @param low the new low
+     */
     public void setLow(int low) {
         this.low = low;
     }
 
+    /**
+     * Gets the high.
+     *
+     * @return the high
+     */
     public int getHigh() {
         return high;
     }
 
+    /**
+     * Sets the high.
+     *
+     * @param high the new high
+     */
     public void setHigh(int high) {
         this.high = high;
     }
 
+    /**
+     * Gets the forecast.
+     *
+     * @return the forecast
+     */
     public String getForecast() {
         return forecast;
     }
 
+    /**
+     * Sets the forecast.
+     *
+     * @param forecast the new forecast
+     */
     public void setForecast(String forecast) {
         this.forecast = forecast;
     }
 
+	/**
+	 * Creates the weather image.
+	 *
+	 * @return the string
+	 */
 	public String createWeatherImage() {
 		Map<String, String> weatherImageMap = new HashMap<>();
 		
@@ -69,6 +136,11 @@ public class Weather {
 		return weatherImageMap.get(forecast);
 	}
 	
+	/**
+	 * Creates the climate recommendation.
+	 *
+	 * @return the string
+	 */
 	public String createClimateRecommendation() {
 	    Map<String, String> climateRecommendationMap = new HashMap<>();
 	    
@@ -80,6 +152,11 @@ public class Weather {
 	    return climateRecommendationMap.getOrDefault(forecast, "");
 	}
 	
+	/**
+	 * Creates the temperature recommendations.
+	 *
+	 * @return the list
+	 */
 	public List<String> createTemperatureRecommendations() {
 	    List<String> temperatureRecommendations = new ArrayList<>();
 	    
@@ -96,6 +173,11 @@ public class Weather {
 	    return temperatureRecommendations;
 	}
 	
+	/**
+	 * Creates the date.
+	 *
+	 * @return the string
+	 */
 	public String createDate() {
 	    LocalDate now = LocalDate.now();
 	    

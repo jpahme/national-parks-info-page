@@ -10,16 +10,30 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+/**
+ * The Class JDBCParkDAO.
+ */
 @Component
 public class JDBCParkDAO implements IParkDAO {
 	
+	/** The jdbc template. */
 	private JdbcTemplate jdbcTemplate;
 	
+	/**
+	 * Instantiates a new JDBC park DAO.
+	 *
+	 * @param dataSource the data source
+	 */
 	@Autowired
 	public JDBCParkDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
+	/**
+	 * Gets the all parks.
+	 *
+	 * @return the all parks
+	 */
 	@Override
 	public List<Park> getAllParks() {
 		List<Park> allParks = new ArrayList<>();
@@ -33,6 +47,12 @@ public class JDBCParkDAO implements IParkDAO {
 		return allParks;
 	}
 
+    /**
+     * Gets the park by park code.
+     *
+     * @param parkCode the park code
+     * @return the park by park code
+     */
     @Override
     public Park getParkByParkCode(String parkCode) {
         Park park = new Park();
@@ -46,6 +66,11 @@ public class JDBCParkDAO implements IParkDAO {
         return park;
     }
     
+    /**
+     * Gets the favorite parks.
+     *
+     * @return the favorite parks
+     */
     @Override
     public List<Park> getFavoriteParks() {
         List<Park> favoriteParks = new ArrayList<>();
@@ -69,6 +94,13 @@ public class JDBCParkDAO implements IParkDAO {
         return favoriteParks;
     }
     
+    /**
+     * Map row to park.
+     *
+     * @param row the row
+     * @param hasSurveyCount the has survey count
+     * @return the park
+     */
     private Park mapRowToPark(SqlRowSet row, boolean hasSurveyCount) {
         Park park = new Park();
         
