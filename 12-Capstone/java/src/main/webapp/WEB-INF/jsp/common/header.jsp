@@ -42,6 +42,11 @@
 				<li class="nav-item">
                     <a class="nav-link" href="<c:url value="/favoriteparks" />">Favorite Parks</a>
                 </li>
+                <li>
+                    <a class="nav-link" 
+                        href="<c:url value="https://heguanelvis.github.io/NationalParkGeek/doc/"/>"
+                      target="_blank">Web Doc</a>
+                </li>
 			</ul>
 		</div>
 	</nav>
