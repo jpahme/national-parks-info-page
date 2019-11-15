@@ -116,6 +116,16 @@ nav a:hover {
 .park-detail-info h5 {
 	font-weight: bold;
 }
+
+.park-detail-info h5 a {
+	color: black;
+	text-decoration: none;
+}
+
+.park-detail-info h5 a:hover:after {
+	content: " Location";
+	color: #ffc107;
+}
 /*******/
 
 

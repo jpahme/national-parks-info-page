@@ -12,7 +12,9 @@
 	
 		<div class="col-12 col-lg-6 mt-4 mt-lg-0">
 			<h5>
-				<c:out value="${ park.parkName }" /> (<c:out value="${ park.parkCode }" />)
+		        <a href="https://www.google.com/maps/search/${ park.parkName }" target="_blank">
+		            <i class="fa fa-map-marker" aria-hidden="true"></i> <c:out value="${ park.parkName }" /> (<c:out value="${ park.parkCode }" />)
+		        </a>
 			</h5>
 		
 			<p>
